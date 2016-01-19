@@ -38,7 +38,7 @@ export function notifyServerEventDispatcher(key, value, actionObject) {
  // stub
 }
 
-export function greenTubeListener(event) {
+export function stubbedListener(event) {
   if (event === undefined || event === null) {
     console.log("Undefined or null event. Returning.");
     return;
@@ -69,11 +69,11 @@ export function sendEventToIFrame(key, value = null){
   document.getElementById("iframeCanvas").contentWindow.postMessage(dataString, "*");
 }
 
-export function addFrameEventListener(eventRef, suppliedListener = greenTubeListener) {
+export function addFrameEventListener(eventRef, suppliedListener = stubbedListener) {
   eventRef.addEventListener('message', suppliedListener, false);
 }
 
-export function removeFrameEventListener(eventRef, suppliedListener = greenTubeListener) {
+export function removeFrameEventListener(eventRef, suppliedListener = stubbedListener) {
   eventRef.removeEventListener("message", suppliedListener);
   console.log("Event listener removed.");
 }
