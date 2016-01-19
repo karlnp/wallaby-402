@@ -28,8 +28,7 @@ var wallabyPostprocessor = wallabyWebpack({
 module.exports = function (wallaby) {
   return {
     env: {
-      //runner: "node_modules/phantomjs2-ext/lib/phantom/bin/phantomjs"
-      runner: "C:\\phantomjs-2.0.0-windows\\bin\\phantomjs.exe"
+     runner: "node_modules/phantomjs2-ext/lib/phantom/bin/phantomjs"
     },
 
     files: [
