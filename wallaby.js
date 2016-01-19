@@ -6,47 +6,18 @@ var wallabyWebpack = require('wallaby-webpack');
 var babel = require('babel-core');
 
 var wallabyPostprocessor = wallabyWebpack({
-    externals: {
-      "Backbone": "backbone",
-      FB: "var FB"
-    },
     plugins: [
-      new webpack.DefinePlugin({}),
-      new webpack.IgnorePlugin(/.scss$/),
-      new webpack.ProvidePlugin(
-        {
-          "_": "underscore",
-          "$": "jquery",
-          "jquery": "jquery",
-          "jQuery": "jquery",
-          "React": "react",
-          "react": "react",
-          "isMobile": path.resolve(modulePath, "isMobile"),
-          "hammer": path.resolve(modulePath, "hammer"),
-          "Hammer": path.resolve(appRootPath, "vendor/hammer")
-        })
+      new webpack.IgnorePlugin(/.scss$/)
     ],
     resolve: {
       fallback: path.resolve("./node_modules"),
       root: [
         appRootPath,
-        path.resolve(appRootPath, "stores"),
-        path.resolve(appRootPath, "server_interfaces"),
-        path.resolve(appRootPath, "dispatchers"),
-        path.resolve(appRootPath, "game-wrappers"),
-        path.resolve(appRootPath, "jsx-templates/client/components"),
-        path.resolve(appRootPath, "jsx-templates/client/dialogs"),
-        path.resolve(appRootPath, "jsx-templates/client/"),
-        path.resolve(appRootPath, "../node_modules/gsap/src/uncompressed"),
-        path.resolve(appRootPath, "vendor"),
-        path.resolve(appRootPath, "bower_components"),
-        path.resolve(appRootPath, "utils"),
-        path.resolve(appRootPath, "utils/patches")
-      ],
+        path.resolve(appRootPath, "game-wrappers")],
       extensions: ['', '.js', '.jsx', '.wbp.js']
     },
     module: {
-      noParse: /(vendor|jquery|bower_components|gsap|json|scss|react\.js|sinon\/).*/
+      noParse: /(json|scss|react\.js|sinon\/).*/
     },
     node: {
       fs: "empty"
@@ -57,12 +28,11 @@ var wallabyPostprocessor = wallabyWebpack({
 module.exports = function (wallaby) {
   return {
     env: {
-      runner: "node_modules/phantomjs2-ext/lib/phantom/bin/phantomjs"
+      //runner: "node_modules/phantomjs2-ext/lib/phantom/bin/phantomjs"
+      runner: "C:\\phantomjs-2.0.0-windows\\bin\\phantomjs.exe"
     },
 
     files: [
-      {pattern: 'node_modules/babel-core/browser-polyfill.js', instrument: false},
-      {pattern: 'node_modules/es6-shim/es6-shim.js', instrument: false},
       {pattern: 'node_modules/react/dist/react-with-addons.js', instrument: false},
       {pattern: 'node_modules/chai/chai.js', instrument: false},
 
