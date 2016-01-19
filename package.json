@@ -25,10 +25,17 @@
     "babel-preset-stage-0": "^6.3.13",
     "babel-runtime": "^6.3.19",
     "chai": "^3.4.1",
+    "domino": "^1.0.21",
     "es6-shim": "^0.34.1",
+    "lodash": "^4.0.0",
     "phantomjs2-ext": "^0.1.0",
     "react": "^0.14.6",
+    "string-score": "^1.0.1",
+    "string_score": "^0.1.22",
     "wallaby-webpack": "0.0.11",
     "webpack": "^1.12.11"
+  },
+  "dependencies": {
+    "keymirror": "^0.1.1"
   }
 }
