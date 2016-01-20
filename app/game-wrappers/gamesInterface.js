@@ -81,7 +81,7 @@ export function removeFrameEventListener(eventRef, suppliedListener = stubbedLis
 export function notImplemented(suppliedKey, suppliedValue) {
   notifyViewEventDispatcher(buildAction(
     Actions.NOT_IMPLEMENTED,
-    JSON.stringify({[suppliedKey]: suppliedValue})
+    //JSON.stringify({[suppliedKey]: suppliedValue})
   ));
 }
 
