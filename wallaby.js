@@ -4,9 +4,13 @@ var appRootPath = path.resolve(__dirname, "app");
 var modulePath = path.resolve(appRootPath, 'vendor');
 var wallabyWebpack = require('wallaby-webpack');
 var babel = require('babel-core');
-
+var buildConstants = require('./app/constants/build_constants');
+/*for(var j=0;j<Object.keys(buildConstants).length;j++){
+  buildConstants[Object.keys(buildConstants)[j]] = "'"+buildConstants[Object.keys(buildConstants)[j]]+"'";
+}*/
 var wallabyPostprocessor = wallabyWebpack({
     plugins: [
+      new webpack.DefinePlugin(buildConstants),
       new webpack.IgnorePlugin(/.scss$/)
     ],
     resolve: {
@@ -28,7 +32,8 @@ var wallabyPostprocessor = wallabyWebpack({
 module.exports = function (wallaby) {
   return {
     env: {
-     runner: "node_modules/phantomjs2-ext/lib/phantom/bin/phantomjs"
+     //runner: "node_modules/phantomjs2-ext/lib/phantom/bin/phantomjs"
+      runner: "C:\\phantomjs-2.0.0-windows\\bin\\phantomjs.exe"
     },
 
     files: [

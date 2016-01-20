@@ -11,6 +11,8 @@ var Actions = keyMirror({
   ERROR_DESCRIPTION: null
 });
 
+console.log(WebpackAPIRoot);
+
 /**
  * @name buildAction
  * @param suppliedType string
