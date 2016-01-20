@@ -1,12 +1,10 @@
 import GamesInterface from './gamesInterface';
 var domino = require('domino');
 describe('gamesInterface', function () {
-  beforeEach(function () {
+  it('should receive events from supplied element', function (done) {
     var window = domino.createWindow('<iframe id="iframeCanvas" src="about:blank"  sandbox="allow-same-origin allow-scripts"></iframe>');
     var document = window.document;
-  });
 
-  it('should receive events from supplied element', function (done) {
     function spyOnListener (event) {
       var testData = event.data;
       assert.equal(testData, "TEST:SUCCESS");

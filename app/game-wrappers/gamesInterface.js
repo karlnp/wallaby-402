@@ -1,4 +1,4 @@
-import * as keyMirror from 'keyMirror';
+var keyMirror = require('keymirror');
 import * as _ from 'lodash';
 
 var events = keyMirror({
@@ -81,7 +81,10 @@ export function removeFrameEventListener(eventRef, suppliedListener = stubbedLis
 export function notImplemented(suppliedKey, suppliedValue) {
   notifyViewEventDispatcher(buildAction(
     Actions.NOT_IMPLEMENTED,
-    JSON.stringify({[suppliedKey]: suppliedValue})
+    JSON.stringify({[suppliedKey]: suppliedValue}),
+    "{}"
+   // JSON.stringify({key: suppliedValue})
+    //JSON.stringify({[suppliedKey]: suppliedValue})
   ));
 }
 
