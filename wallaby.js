@@ -17,7 +17,7 @@ var wallabyPostprocessor = wallabyWebpack({
       extensions: ['', '.js', '.jsx', '.wbp.js']
     },
     module: {
-      noParse: /(json|scss|react\.js|sinon\/).*/
+      //noParse: /(json|scss|react\.js|sinon\/).*/
     },
     node: {
       fs: "empty"
