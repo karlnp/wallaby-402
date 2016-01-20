@@ -17,7 +17,40 @@ var wallabyPostprocessor = wallabyWebpack({
       extensions: ['', '.js', '.jsx', '.wbp.js']
     },
     module: {
-      //noParse: /(json|scss|react\.js|sinon\/).*/
+      loaders: [{
+        test: /\.jsx?$/,
+        exclude: /(node_modules|bower_components|vendor)/,
+        loader: 'babel',
+        query: {
+          sourceMaps: true,
+          presets: ['es2015', 'stage-0', 'react'],
+          plugins: ['transform-runtime', "babel-plugin-transform-decorators-legacy"]
+        },
+        include: [appRootPath,
+          path.join(appRootPath, "jsx-templates"),
+          path.join(appRootPath, "sass"),
+          path.join(appRootPath, "dispatchers"),
+          path.join(appRootPath, "stores")]
+      },
+        {
+          test: /\.js?$/,
+          exclude: /(node_modules|bower_components|vendor)/,
+          loader: 'babel',
+          query: {
+            sourceMaps: true,
+            presets: ['es2015', 'stage-0', 'react'],
+            plugins: ['transform-runtime', "babel-plugin-transform-decorators-legacy"]
+          },
+          include: [
+            appRootPath,
+            path.join(appRootPath, "views"),
+            path.join(appRootPath, "bbe"),
+            path.join(appRootPath, "dispatchers"),
+            path.join(appRootPath, "game-wrappers")
+          ]
+        }
+      ],
+      noParse: /(json|scss|react\.js|sinon\/).*/
     },
     node: {
       fs: "empty"
@@ -28,7 +61,8 @@ var wallabyPostprocessor = wallabyWebpack({
 module.exports = function (wallaby) {
   return {
     env: {
-     runner: "node_modules/phantomjs2-ext/lib/phantom/bin/phantomjs"
+     //runner: "node_modules/phantomjs2-ext/lib/phantom/bin/phantomjs"
+      runner: "C:\\phantomjs-2.0.0-windows\\bin\\phantomjs.exe"
     },
 
     files: [
