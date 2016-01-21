@@ -9,8 +9,8 @@ var demoPath = "http://url1.com/";
 var devPath = "https://url2.net";
 // these variables are injected into both Javascript and SCSS.
 module.exports = {
-  templateDir: "jsx-templates/foxwoods/",
-  styleDir: "style/foxwoods/",
+  templateDir: "jsx-templates/client/",
+  styleDir: "style/client/",
   webPath: imageRoot + webDir,
   mobilePath: imageRoot + mobileDir,
   _facebookEnabled: false,
